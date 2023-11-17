@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Regularidad.Models.Afiliado>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista de afiliados</h1>
+
+
+<div class="d-flex justify-content-end  " >
+    <a asp-action="Create" class="btn p-3 font-weight-bold" style=" background-color: #dfc207">
+            <i class="fa-solid fa-folder-plus fa-2xl" style="color: dark"></i>
+       Crear nuevo 
+    </a>
+</div>
+
+
+<form asp-action="Index" method="get" class="bg-dark rounded text-light ">
+    <div class="col-4-md  p-3 m-3">
+        <h3> Filtrar </h3>
+         <input type="text" name="buscNombre" class="rounded border-0 m-2 p-2" placeholder="Nombre"/>
+         <input type="text" name="buscApellido" class="rounded border-0 m-2 p-2" placeholder="Apellido" />
+         <input type="text" name="buscaDni" class="rounded border-0 m-2 p-2" placeholder="Dni" />
+        <button type="submit" class="btn btn-light">  Filtrar </button>
+    </div>
+  </form>
+     
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Apellido
+            </th>
+            <th>
+               Nombres
+            </th>
+            <th>
+                Dni
+            </th>
+            <th>
+              Fecha de nacimiento
+            </th>
+            <th>
+                Foto
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dni)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaNacimiento)
+            </td>
+                <td>
+                    @if (!string.IsNullOrEmpty(@item.foto))
+                    {
+                        <img class="rounded-circle" style="max-height:50px" src="~/images/afiliados/@item.foto" asp-append-version="true">
+
+                    }
+
+                </td>
+            <td>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm ">
+                        <i class="fa-solid fa-circle-info fa-xl" style="color: #343232;"></i>
+                    </a>
+                   
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm ">
+                        <i class="fa-solid fa-file-pen fa-xl" style="color: #343232;"></i>
+                </a> 
+
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm ">
+                        <i class="fa-solid fa-trash fa-xl" style="color: #d10000;"></i>
+                    </a>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>

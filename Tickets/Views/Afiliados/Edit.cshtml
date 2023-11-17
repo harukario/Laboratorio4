@@ -1,0 +1,61 @@
+﻿@model Regularidad.Models.Afiliado
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editar Afiliado</h1>
+<div>
+    <a asp-action="Index">Volver a la lista</a>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Apellido" class="control-label"></label>
+                <input asp-for="Apellido" class="form-control" />
+                <span asp-validation-for="Apellido" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nombres" class="control-label"></label>
+                <input asp-for="Nombres" class="form-control" />
+                <span asp-validation-for="Nombres" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dni" class="control-label"></label>
+                <input asp-for="Dni" class="form-control" />
+                <span asp-validation-for="Dni" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaNacimiento" class="control-label"></label>
+                <input asp-for="FechaNacimiento" class="form-control" />
+                <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+            
+                @if (!string.IsNullOrEmpty(@Model.foto))
+                {
+                    <img id="imgAfiliado"src="~/images/afiliados/@Model.foto" class="img-thumnail" asp-append-version="true" style="max-height:80px; max-width:80px">
+                }
+            
+                <label class="control-label">Seleccione fotografía</label>
+                <input asp-for="foto" type="file" accept="image/jpeg" />
+            </div>
+            <input type="hidden" asp-for="foto" />
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-dark mt-3" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="~/js//preview.js"></script>

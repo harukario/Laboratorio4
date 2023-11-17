@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center" style="margin-top:6rem">
+    
+ <h1 class="mt-3">Bienvenido!</h1>
+    
+    <h3 class="mb-3" style="color:#dfc207">Registrate antes de comenzar :) </h3>
+    <main role="main" class="pb-3" style="margin-top:6rem">
+        
+        <button class="btn btn-dark  btn-lg m-3">
+            <a class="nav-link  text-light  font-weight-bold" asp-area="" asp-controller="Afiliados" asp-action="Index"> Afiliados</a>
+        </button>
+        <button class="btn btn-dark  btn-lg m-3">
+            <a class="nav-link text-light  font-weight-bold" asp-area="" asp-controller="Tickets" asp-action="Index">Tickets</a>
+        </button>
+        <button class="btn btn-dark  btn-lg m-3">
+            <a class="nav-link  text-light  font-weight-bold" asp-area="" asp-controller="TicketDetalles" asp-action="Index">Detalle Ticket</a>
+        </button>
+    </main>
+</div>

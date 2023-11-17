@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Tickets</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Tickets.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark border-bottom box-shadow mb-3 text-light  font-weight-bold">
+            <div class="container-fluid">
+                <div class="d-flex justify-content-start align-items-center">
+                    <i class="fa-solid fa-ticket fa-2xl p-2" style="color: #dfc207;"></i> 
+                    <a class="navbar-brand titulo p-2" style="color: #dfc207;" asp-area="" asp-controller="Home" asp-action="Index">Ticketero</a>
+                </div>
+               
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                    <partial name="_LoginPartial" />
+                </div>
+            
+
+        </nav>
+    </header>
+    <div class="container ">
+        <main role="main" class="pb-3 ">
+            @RenderBody()
+        </main>
+    </div>
+
+   
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://kit.fontawesome.com/638dbe0d71.js" crossorigin="anonymous"></script>
+   
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

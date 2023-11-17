@@ -1,0 +1,36 @@
+﻿@model Regularidad.Models.Ticket
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalle del ticket</h1>
+
+<div>
+    <a asp-action="Index">Volver a la lista</a>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Fecha de solicitud
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FechaSolicitud)
+        </dd>
+        <dt class = "col-sm-2">
+            Observacion
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Observacion)
+        </dd>
+        <dt class = "col-sm-2">
+            Afiliado
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.afiliado.NombreCompleto)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-dark mt-3" asp-action="Edit" asp-route-id="@Model?.Id">Editar</a>
+   
+</div>

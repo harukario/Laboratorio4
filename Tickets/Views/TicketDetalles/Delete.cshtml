@@ -1,0 +1,46 @@
+﻿@model Regularidad.Models.TicketDetalle
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Borrar</h1>
+
+<h3>Deseas borrar este ticket?</h3>
+<a asp-action="Index">Volver a la lista</a>
+<div>
+    
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+           Descripcion del pedido
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DescripcionPedido)
+        </dd>
+        <dt class = "col-sm-2">
+            Fecha Estado
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FechaEstado)
+        </dd>
+        <dt class = "col-sm-2">
+            Ticket asociado
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ticket.NombreTicket)
+        </dd>
+        <dt class = "col-sm-2">
+            Estado
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.estado.Descripcion)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Borrar" class="btn btn-danger mt-3" /> 
+       
+    </form>
+</div>
